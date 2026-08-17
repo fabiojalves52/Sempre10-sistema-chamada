@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Chamadas V2.2 - Sempre 10</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body class="painel-body">
+    <!-- Logo Fixa -->
+    <img src="logo.webp" class="logo-fixa" alt="Sempre 10 Logo">
+
+    <!-- Efeito de Flash -->
+    <div id="flash-overlay"></div>
+
+    <div id="painel-container" class="painel-container mode-idle">
+        <!-- Vídeo de Fundo (Modo Espera) -->
+        <video id="video-player" class="video-background hidden" muted playsinline></video>
+
+        <!-- Conteúdo de Espera (Idle) -->
+        <div id="idle-content" class="idle-wrapper">
+            <p class="mensagem-loja">BEM-VINDO À NOSSA LOJA</p>
+            <p class="sub-mensagem">Aguardando chamada...</p>
+        </div>
+
+        <!-- Conteúdo de Chamada -->
+        <div id="chamada-content" class="chamada-wrapper hidden">
+            <p class="label">DIRIJA-SE AO</p>
+            <h1 id="caixa-numero" class="caixa-destaque">CAIXA X</h1>
+        </div>
+    </div>
+
+    <!-- Áudio de notificação -->
+    <audio id="audio-ding" src="ding.mp3" preload="auto"></audio>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="painel.js"></script>
+</body>
+</html>

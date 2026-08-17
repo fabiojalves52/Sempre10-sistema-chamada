@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sempre 10 - Controle</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body class="atendente-body">
+    <div class="status-bar">
+        <div id="status-indicator" class="indicator offline"></div>
+        <span id="status-text">Offline</span>
+    </div>
+
+    <div class="container">
+        <h1>Painel de Controle</h1>
+        <div class="botoes-grid">
+            <button class="btn-caixa c1" onclick="chamar(1)">CAIXA 1</button>
+            <button class="btn-caixa c2" onclick="chamar(2)">CAIXA 2</button>
+            <button class="btn-caixa c3" onclick="chamar(3)">CAIXA 3</button>
+            <button class="btn-caixa c4" onclick="chamar(4)">CAIXA 4</button>
+            <button class="btn-caixa c5" onclick="chamar(5)">CAIXA 5</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="cliente.js"></script>
+</body>
+</html>

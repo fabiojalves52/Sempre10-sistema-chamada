@@ -1,0 +1,16 @@
+{
+  "name": "Sempre 10 - Chamada",
+  "short_name": "Sempre 10",
+  "description": "Painel de Atendimento Sempre 10",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff9800",
+  "icons": [
+    {
+      "src": "logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}
