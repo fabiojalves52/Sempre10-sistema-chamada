@@ -12,12 +12,6 @@ const logoFixa = document.querySelector('.logo-fixa');
 let idleTimer;
 let videoList = [];
 let currentVideoIndex = 0;
-
-
-/* =========================================================
-   CONTROLE DA LOGO
-   ========================================================= */
-
 function esconderLogo() {
     if (logoFixa) {
         logoFixa.style.display = 'none';
@@ -29,12 +23,6 @@ function mostrarLogo() {
         logoFixa.style.display = '';
     }
 }
-
-
-/* =========================================================
-   CARREGAR LISTA DE VÍDEOS
-   ========================================================= */
-
 async function carregarVideos() {
     try {
         const response = await fetch('/api/videos');
@@ -51,12 +39,6 @@ async function carregarVideos() {
         console.error("Erro ao carregar vídeos:", e);
     }
 }
-
-
-/* =========================================================
-   PLAYLIST
-   ========================================================= */
-
 function iniciarPlaylist() {
 
     if (videoList.length === 0) return;
@@ -85,12 +67,6 @@ function iniciarPlaylist() {
         });
     };
 }
-
-
-/* =========================================================
-   MODO ESPERA / PROPAGANDA
-   ========================================================= */
-
 function gerenciarModoEspera() {
 
     if (videoList.length > 0) {
@@ -133,12 +109,6 @@ function gerenciarModoEspera() {
         mostrarLogo();
     }
 }
-
-
-/* =========================================================
-   NOVA CHAMADA
-   ========================================================= */
-
 socket.on('nova-chamada', (numero) => {
     exibirChamada(numero);
 });
@@ -165,40 +135,18 @@ function exibirChamada(numero) {
     */
 
     mostrarLogo();
-
-
-    /* =====================================================
-       EFEITO DE FLASH
-       ===================================================== */
-
     flashOverlay.classList.remove('flash-active');
 
     void flashOverlay.offsetWidth;
 
     flashOverlay.classList.add('flash-active');
 
-
-    /* =====================================================
-       MODO CHAMADA
-       ===================================================== */
-
     idleContent.classList.add('hidden');
 
     chamadaContent.classList.remove('hidden');
 
     displayCaixa.innerText = `CAIXA ${numero}`;
-
-
-    /* =====================================================
-       SOM
-       ===================================================== */
-
     tocarSom();
-
-
-    /* =====================================================
-       VOZ
-       ===================================================== */
 
     setTimeout(() => {
         falar(`Caixa ${numero}`);
