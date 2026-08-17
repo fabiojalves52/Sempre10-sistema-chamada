@@ -206,30 +206,32 @@ body {
 }
 
 /* Modo Chamada */
-.chamada-wrapper {
-    text-align: center;
-    animation: fadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .label {
-    font-size: clamp(3rem, 10vw, 8rem);
+    font-size: clamp(2rem, 8vh, 5vw); /* Ajustado para não subir na logo */
     color: var(--text-dark);
     font-weight: 900;
-    margin-bottom: -1vh;
+    margin-bottom: 2vh;
     text-transform: uppercase;
 }
 
 .caixa-destaque {
-    font-size: clamp(12rem, 40vw, 55rem); 
+    /* O segredo está no 'vh' (altura). Isso impede que o texto saia por baixo ou por cima */
+    font-size: clamp(5rem, 35vh, 25vw); 
     color: var(--primary-red);
     font-weight: 900;
-    line-height: 0.8;
-    letter-spacing: -5px;
+    line-height: 1;
+    letter-spacing: -2px;
+    white-space: nowrap; /* Impede que o texto quebre em duas linhas */
+}
+
+.chamada-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90vw; /* Garante uma margem nas laterais */
+    max-height: 80vh; /* Garante que não bata na logo nem saia da tela */
 }
 
 .hidden {
