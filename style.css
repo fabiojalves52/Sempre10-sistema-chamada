@@ -1,7 +1,11 @@
-/* Configurações Globais */
+/* 
+   PAINEL DE CHAMADA SEMPRE 10 - V2.2 FINAL 
+   VISUAL PREMIUM E RESPONSIVO
+*/
+
 :root {
     --primary-red: #d32f2f;
-    --primary-orange: #ff9800; /* Laranja para o Teclado */
+    --primary-orange: #ff9800;
     --dark-orange: #f57c00;
     --bg-light: #f4f7f6;
     --text-dark: #1a1a1a;
@@ -17,7 +21,7 @@
 }
 
 body {
-    background-color: var(--bg-light);
+    background-color: #ffffff;
     overflow: hidden;
 }
 
@@ -116,10 +120,10 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: white;
 }
 
 .video-background {
@@ -130,28 +134,34 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: 1;
-    transition: opacity 0.5s ease; /* Transição suave */
+    transition: opacity 0.5s ease;
 }
 
 .logo-fixa {
     position: fixed;
-    top: 5vh; /* Distância do topo */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Ajuste fino da centralização */
-    width: clamp(200px, 25vw, 400px); /* Aumentei o tamanho da logo */
+    top: 4vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(150px, 20vw, 350px);
     height: auto;
     z-index: 100;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
 }
 
 .idle-wrapper, .chamada-wrapper {
     position: relative;
     z-index: 2;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15vh; /* Espaço para a logo centralizada */
 }
 
-/* Quando o vídeo está rodando, podemos querer esconder o texto de boas-vindas */
-.video-active .idle-wrapper {
-    display: none;
+.video-active .idle-wrapper, .video-active .logo-fixa {
+    display: none; /* Esconde logo quando o vídeo de propaganda roda */
 }
 
 #flash-overlay {
@@ -175,66 +185,40 @@ body {
     100% { opacity: 0; }
 }
 
-/* Modo Espera (Idle) */
-.idle-wrapper {
-    text-align: center;
-    width: 100%;
-}
-
-#relogio {
-    font-size: 18vw; 
-    color: #1a1a1a;
-    font-weight: 900;
-    margin-bottom: 5px;
-    line-height: 1;
-}
-
+/* MODO ESPERA (IDLE) */
 .mensagem-loja {
-    font-size: 10vw; /* Aumentado para preencher o espaço do relógio */
+    font-size: clamp(4rem, 9vw, 12rem);
     color: var(--primary-red);
     font-weight: 900;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    line-height: 1.1;
+    line-height: 1;
+    margin-bottom: 2vh;
 }
 
 .sub-mensagem {
-    font-size: 4vw; /* Aumentado */
+    font-size: clamp(1.5rem, 3vw, 4rem);
     color: #444;
-    margin-top: 20px;
     font-weight: 800;
     text-transform: uppercase;
 }
 
-/* Modo Chamada */
+/* MODO CHAMADA */
 .label {
-    font-size: clamp(2rem, 8vh, 5vw); /* Ajustado para não subir na logo */
+    font-size: clamp(2rem, 7vh, 6vw);
     color: var(--text-dark);
     font-weight: 900;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
     text-transform: uppercase;
 }
 
 .caixa-destaque {
-    /* O segredo está no 'vh' (altura). Isso impede que o texto saia por baixo ou por cima */
-    font-size: clamp(5rem, 35vh, 25vw); 
+    font-size: clamp(8rem, 32vh, 28vw); 
     color: var(--primary-red);
     font-weight: 900;
-    line-height: 1;
+    line-height: 0.9;
     letter-spacing: -2px;
-    white-space: nowrap; /* Impede que o texto quebre em duas linhas */
-}
-
-.chamada-wrapper {
-    text-align: center;
-    animation: fadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    width: 90vw;
-    max-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15vh; /* Empurra o texto para baixo da logo centralizada */
+    white-space: nowrap;
 }
 
 .hidden {
@@ -242,13 +226,11 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.8); }
+    from { opacity: 0; transform: scale(0.85); }
     to { opacity: 1; transform: scale(1); }
 }
 
-/* Responsividade Extra */
 @media (max-width: 768px) {
-    .botoes-grid { grid-template-columns: 1fr; }
-    .atendente-body { padding: 15px; }
-    .btn-caixa { padding: 30px 10px; font-size: 1.5rem; }
+    .botoes-grid { gap: 15px; }
+    .btn-caixa { width: 150px; height: 150px; font-size: 1.3rem; }
 }
