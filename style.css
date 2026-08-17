@@ -135,12 +135,13 @@ body {
 
 .logo-fixa {
     position: fixed;
-    top: 20px;
-    right: 30px;
-    width: 180px;
+    top: 5vh; /* Distância do topo */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajuste fino da centralização */
+    width: clamp(200px, 25vw, 400px); /* Aumentei o tamanho da logo */
     height: auto;
     z-index: 100;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
 }
 
 .idle-wrapper, .chamada-wrapper {
@@ -226,12 +227,14 @@ body {
 
 .chamada-wrapper {
     text-align: center;
+    animation: fadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 90vw;
+    max-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90vw; /* Garante uma margem nas laterais */
-    max-height: 80vh; /* Garante que não bata na logo nem saia da tela */
+    margin-top: 15vh; /* Empurra o texto para baixo da logo centralizada */
 }
 
 .hidden {
